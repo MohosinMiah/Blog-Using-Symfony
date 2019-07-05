@@ -48,7 +48,9 @@ class TblAuthor
     {
         return $this->id;
     }
-
+    public function __toString() {
+        return $this->username;
+    }
     public function getUsername(): ?string
     {
         return $this->username;

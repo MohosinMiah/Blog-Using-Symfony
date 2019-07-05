@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TblPostRepository")
  */
 class TblPost
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -116,6 +117,7 @@ class TblPost
     {
         return $this->author_id;
     }
+ 
 
     public function setAuthorId(?TblAuthor $author_id): self
     {
