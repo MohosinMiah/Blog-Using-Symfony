@@ -5,3 +5,11 @@ easy_admin:
        - App\Entity\TblStory
        - App\Entity\TblAuthor
   
+
+    # ...
+   design:
+
+        # the value of this option can be any valid CSS color
+       brand_color: 'green'
+
+        # if the color includes a '%', you must double it to escape it in the YAML file
