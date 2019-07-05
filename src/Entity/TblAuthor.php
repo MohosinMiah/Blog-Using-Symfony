@@ -33,9 +33,15 @@ class TblAuthor
      */
     private $tblPosts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TblStory", mappedBy="author_is")
+     */
+    private $tblStories;
+
     public function __construct()
     {
         $this->tblPosts = new ArrayCollection();
+        $this->tblStories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +98,37 @@ class TblAuthor
             // set the owning side to null (unless already changed)
             if ($tblPost->getAuthorId() === $this) {
                 $tblPost->setAuthorId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TblStory[]
+     */
+    public function getTblStories(): Collection
+    {
+        return $this->tblStories;
+    }
+
+    public function addTblStory(TblStory $tblStory): self
+    {
+        if (!$this->tblStories->contains($tblStory)) {
+            $this->tblStories[] = $tblStory;
+            $tblStory->setAuthorIs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTblStory(TblStory $tblStory): self
+    {
+        if ($this->tblStories->contains($tblStory)) {
+            $this->tblStories->removeElement($tblStory);
+            // set the owning side to null (unless already changed)
+            if ($tblStory->getAuthorIs() === $this) {
+                $tblStory->setAuthorIs(null);
             }
         }
 
