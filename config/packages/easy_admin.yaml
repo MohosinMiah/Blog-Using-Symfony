@@ -4,11 +4,15 @@ easy_admin:
        - App\Entity\TblPost
        - App\Entity\TblStory
        - App\Entity\TblAuthor
-  
+   list:
+       title: 'list.%%entity_label%%'
+ 
+   show:
+       title: '%%entity_label%% (#%%entity_id%%)'
 
     # ...
    design:
-
+       form_theme: '@EasyAdmin/form/bootstrap_4.html.twig'
         # the value of this option can be any valid CSS color
        brand_color: 'green'
 

@@ -54,6 +54,11 @@ class TblPost
      */
     private $author_id;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -128,6 +133,18 @@ class TblPost
     public function setAuthorId(?TblAuthor $author_id): self
     {
         $this->author_id = $author_id;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
